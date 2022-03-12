@@ -1,0 +1,42 @@
+<html>
+  <header>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mail Send | M0X22T6</title>
+    <meta name="theme-color" content="black" />
+    <link rel="stylesheet" href="css/ctstyle.css" type="text/css" media="all" />
+  </header>
+  <body>
+    <div class="container">
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>GET IN TOUGH</h3>
+        <label for="name"><span>NAME<span class="required-star">*</span></label>
+        <input type="text" name="name" id="name" required/>
+         <label for="email"><span>E-mail<span class="required-star">*</span></label>
+        <input type="email" name="email" id="email" required/>
+         <label for="massage"><span>MESSAGE<span class="required-star">*</span></label>
+       <textarea name="massage" id=massage rows="4"required></textarea>
+       <button type="submit">Send</button>
+      </form>
+      
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+</script>
+    <script>
+      function sendEmail(){
+        Email.send({
+          Host : "smtp.elasticemail.com",
+          Username : "rarafi693@gmail.com",
+          Password : "D46431DABCC172D47FE4D6B6192B231234AD",
+          To : 'muhammadmonayem22@gmail.com',
+          From : "rarafi693@gmail.com",
+          Subject : "New Contract Form Enquiry",
+          Body : "Name: " + document.getElementById("name").value
+          + "<br>E-mail: " + document.getElementById("email").value
+          + "<br>Massage: " + document.getElementById("massage").value
+        }).then(
+          message => alert("Massage Sent Successfully")
+          );
+      }
+    </script>
+  </body>
+</html>
